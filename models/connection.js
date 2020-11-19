@@ -8,7 +8,7 @@ connection = () =>
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-    .then((conn) => conn.db('jwt_exercise'))
+    .then((conn) => conn.db('jwt_example'))
     .catch((err) => {
       console.error(err);
       process.exit(1);

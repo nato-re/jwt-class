@@ -11,12 +11,12 @@ module.exports = async (req, res) => {
 
     const user = await User.findUser(username);
 
-    if (!user || !isMatch)
+    if (!user || user.password !== password)
       return res
         .status(401)
         .json({ message: 'Usuário não existe ou senha inválida' });
 
-    return res.status(200).json(token);
+    return res.status(200).json({ message: 'usuário registrado' });
   } catch (e) {
     console.log(e);
     return res.status(500).json({ message: 'Erro interno', error: e });

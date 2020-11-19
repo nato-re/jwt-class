@@ -2,7 +2,6 @@ const Model = require('../models/user');
 
 module.exports = async (req, res) => {
   try {
-    console.log(req.body)
     const { username, password } = req.body;
 
     const userExists = await Model.findUser(username);
