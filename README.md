@@ -7,7 +7,7 @@ No seu terminal, cmd, power shell ou bash execute os seguintes comandos:
 - `git clone https://github.com/tryber/nodejs-jwt-base-project.git`
 - `cd nodejs-jwt-base-project`
 - `npm i`
-- `node api/server.js`
+- `node index.js`
 
 ## Estrutura base do projeto
 
@@ -15,8 +15,8 @@ Abaixo, está a estrutura base do projeto. Ele implementa uma API em NodeJS e Ex
  
 ```
 ├── README.md
-├── api
-│  ├── routes.js
+├── routes
+│  ├── index.js
 │  └── server.js
 ├── controllers
 │  ├── createUser.js
@@ -24,6 +24,7 @@ Abaixo, está a estrutura base do projeto. Ele implementa uma API em NodeJS e Ex
 │  └── posts.js
 ├── models
 │  └── user.js
+├── index.js
 ├── package-lock.json
 └── package.json
 ```
@@ -47,10 +48,10 @@ A API possui três controllers:
 
   - `posts.js`: Encontra os posts de um usuário.
  
-### `api/routes.js`
+### `routes/index.js`
 
 Esse é um arquivo que concentra os controllers do projeto.
  
-### `api/server.js`
+### `index.js`
 
 Aqui é onde é criado de fato a API com o Express. Também é onde todas as rotas são configuradas.
