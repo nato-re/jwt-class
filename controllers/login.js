@@ -1,5 +1,9 @@
 const User = require('../models/user');
 
+const jwt = require('jsonwebtoken');
+
+const segredo = 'babado';
+
 module.exports = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -16,7 +20,14 @@ module.exports = async (req, res) => {
         .status(401)
         .json({ message: 'Usuário não existe ou senha inválida' });
 
-    return res.status(200).json({ message: 'usuário registrado' });
+    const jwtOptions = {
+      expiresIn: '15m',
+      algorithm: 'HS256'
+    }
+    const { password: _, ...userWithoutPassword } = user;
+    const token = jwt.sign(userWithoutPassword, segredo, jwtOptions);
+
+    return res.status(200).json({ token });
   } catch (e) {
     console.log(e);
     return res.status(500).json({ message: 'Erro interno', error: e });
