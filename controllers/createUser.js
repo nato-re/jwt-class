@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
 
     const userExists = await Model.findUser(username);
 
-    if(userExists) return res.status(400).json({ message: 'username já existe' })
+    if(userExists) return res.status(409).json({ message: 'username já existe' })
 
     const user = await Model.registerUser(
       username,
